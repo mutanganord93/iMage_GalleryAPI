@@ -11,9 +11,9 @@ router.route('/pictures',async(req,res)=>{
         const apiKey = process.env.apiKey;
         const url = `https://api.unsplash.com/search/photos?page=1&per_page=100&query=${val}&client_id=${apiKey}`;
         const response = await axios.get(url);
-        res.json(response.data);
+        res.status(200).json(response.data);
     } catch (error) {
-        console.log(error);
+        res.status(500).json({msg:error});
     }
 })
 
