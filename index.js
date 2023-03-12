@@ -7,7 +7,7 @@ const gallery = require('./routes/gallery');
 const app = express();
 
 require('dotenv').config();
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(gallery);
 
