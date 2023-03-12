@@ -10,9 +10,9 @@ const app = express();
 require('dotenv').config();
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use(apiData);
-app.use(gallery);
 
+app.use(gallery);
+app.use(apiData);
 
 const start = async()=>{
     try {
