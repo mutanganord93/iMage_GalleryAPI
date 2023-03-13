@@ -17,10 +17,12 @@ const{getCollection,
     DelecteCollection,
     DeletePicInCollection,
     UpdateCollectionName} = require('../controllers/picture');
+const fetchData = require('../fetchData');
 
 router.route('/').get(getAllCollections);
 router.route('/:collection_id').get(getCollection).post(postCollectionInCollections).delete(DelecteCollection).patch(UpdateCollectionName);
 router.route('/:collection_id/pics').post(postPicInCollection).delete(DeletePicInCollection);
+router.route('/pictures').get(fetchData);
 
 
 module.exports = router;

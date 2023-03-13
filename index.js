@@ -4,7 +4,6 @@ const cors = require('cors');
 const corsOptions = require('./config/corsOptions')
 const connectDB = require('./db/connect');
 const gallery = require('./routes/gallery');
-const apiData = require('./fetchData');
 const app = express();
 
 require('dotenv').config();
@@ -12,7 +11,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use(gallery);
-app.use(apiData);
+
 
 const start = async()=>{
     try {
