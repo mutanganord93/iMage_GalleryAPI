@@ -9,7 +9,7 @@ const gallery = require('./routes/gallery');
 const app = express();
 const axios = require('axios');
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.get('/pictures',async(req,res) =>{
     try {
