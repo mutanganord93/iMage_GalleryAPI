@@ -17,7 +17,7 @@ const{getCollection,
     DelecteCollection,
     DeletePicInCollection,
     UpdateCollectionName} = require('../controllers/picture');
-const fetchData = require('../fetchData');
+
 
 router.route('/').get(getAllCollections);
 router.route('/:collection_id').get(getCollection).post(postCollectionInCollections).delete(DelecteCollection).patch(UpdateCollectionName);
