@@ -1,14 +1,27 @@
+
+require('dotenv').config();
 const express = require('express');
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 const cors = require('cors');
 const corsOptions = require('./config/corsOptions')
 const connectDB = require('./db/connect');
 const gallery = require('./routes/gallery');
 const app = express();
+const axios = require('axios');
 
-require('dotenv').config();
 app.use(cors());
-app.use(express.json());
+
+app.get('/pictures',async(req,res) =>{
+    try {
+        const apiKey = process.env.apiKey;
+        const {query} = req.query;
+        const url = `https://api.unsplash.com/search/photos?page=1&per_page=100&query=${query}&client_id=${apiKey}`;
+        const response = await axios.get(url);
+        res.json(response.data);
+    } catch (error) {
+        res.json({msg:error});
+    }  
+})
 
 app.use(gallery);
 
