@@ -5,7 +5,7 @@ const Picture = new mongoose.Schema({
 const GallerySchema = new mongoose.Schema({
     name:{
         type:String,
-        required:[true,'must provide task']
+        required:[true,'must provide a name to the Pin']
     },
     data:[Picture]
 })

@@ -3,12 +3,12 @@ require('dotenv').config();
 const express = require('express');
 const PORT = 5000;
 const cors = require('cors');
-const corsOptions = require('./config/corsOptions')
 const connectDB = require('./db/connect');
 const gallery = require('./routes/gallery');
 const app = express();
 const axios = require('axios');
 
+app.use(express.json());
 app.use(cors());
 
 app.get('/pictures',async(req,res) =>{
@@ -23,7 +23,7 @@ app.get('/pictures',async(req,res) =>{
     }  
 })
 
-app.use(gallery);
+app.use('/pin',gallery);
 
 
 const start = async()=>{
